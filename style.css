@@ -1,14 +1,13 @@
-/* Container for our new controls in the dialog header */
 #gem-controls-container {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: auto; /* Pushes our controls to the right */
+    margin-left: auto;
     padding-right: 16px;
     position: relative; 
 }
 
-/* --- The custom "Load Gem" button --- */
+/* --- Custom "Load Gem" button --- */
 #gem-loader-button {
     display: flex;
     align-items: center;
@@ -24,7 +23,7 @@
     cursor: pointer;
     transition: background-color 0.2s;
     font-family: 'Google Sans', sans-serif;
-    text-align: left; /* Ensure text aligns left */
+    text-align: left;
 }
 #gem-loader-button:hover {
     background-color: rgba(255, 255, 255, 0.1);
@@ -34,33 +33,26 @@
     color: #9aa0a6;
 }
 
-/* --- The new "Add Gem" text input --- */
+/* --- "Add Gem" text input --- */
 #gem-new-name-input {
     background-color: transparent;
     color: #e8eaed;
-    border: 1px solid #8ab4f8; /* Highlight with accent color when active */
+    border: 1px solid #8ab4f8;
     border-radius: 18px;
     padding: 0 12px;
     font-size: 14px;
     height: 36px;
-    width: 140px; /* Give it a defined width */
+    width: 140px;
     font-family: 'Google Sans', sans-serif;
     box-sizing: border-box;
 }
-#gem-new-name-input:focus {
-    outline: none;
-}
+#gem-new-name-input:focus { outline: none; }
+.gem-control-hidden { display: none !important; }
 
-/* Utility class to hide elements */
-.gem-control-hidden {
-    display: none !important;
-}
-
-/* --- The custom dropdown menu panel --- */
-#gem-menu {
+/* --- Custom dropdown menu panel (for both loader and options) --- */
+.gem-menu {
     position: absolute;
     top: 42px;
-    left: 0;
     z-index: 99999;
     min-width: 160px;
     background-color: #1f1f1f;
@@ -69,8 +61,10 @@
     padding: 8px;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
 }
+#gem-loader-menu { left: 0; }
+#gem-options-menu { right: 0; } /* Aligns the options menu to the right */
 
-/* --- Individual items inside the menu --- */
+/* --- Individual items inside a menu --- */
 .gem-menu-item {
     display: block;
     padding: 6px 12px;
@@ -86,7 +80,7 @@
     background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* --- Header icon buttons (Save, Add, Delete) --- */
+/* --- Header icon buttons --- */
 .gem-header-button {
     background: none;
     border: none;
@@ -103,3 +97,82 @@
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
 }
+
+#gem-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Google Sans', sans-serif;
+}
+#gem-modal {
+    background-color: #2a2a2a;
+    color: #e8eaed;
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+#gem-modal-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    color: #bdc1c6;
+}
+#gem-modal-message {
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+}
+#gem-modal-input {
+    width: 100%;
+    background-color: #3c4043;
+    border: 1px solid #5f6368;
+    border-radius: 4px;
+    color: #e8eaed;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+#gem-modal-input:focus {
+    outline: none;
+    border-color: #8ab4f8;
+}
+#gem-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.gem-modal-button {
+    border: none;
+    border-radius: 18px;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#gem-modal-cancel {
+    background-color: transparent;
+    color: #8ab4f8;
+}
+#gem-modal-cancel:hover {
+    background-color: rgba(138, 180, 248, 0.1);
+}
+#gem-modal-confirm {
+    background-color: #8ab4f8;
+    color: #202124;
+}
+#gem-modal-confirm:hover {
+    background-color: #a1c2fa;
+}
+
+
