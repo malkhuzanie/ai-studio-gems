@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AI Studio Gems",
+  "version": "1.1",
+  "description": "Save and load reusable System Instructions in Google AI Studio.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://aistudio.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://aistudio.google.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
